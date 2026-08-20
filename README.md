@@ -1,1 +1,1 @@
-# matematica-NumPy
+# matematica-SciPy
