@@ -1,20 +1,14 @@
 import numpy as np
-from scipy.sparse import csr_matrix
+from scipy.spatial import distance
 
-# Criando uma matriz normal (densa) com muitos zeros
-matriz_densa = np.array([
-    [0, 0, 0, 0, 0],
-    [0, 7, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 9, 0]
-])
+# Definindo as coordenadas (x, y) de dois pontos de parada em um mapa fictício
+inicial = np.array([2, 5])
+final = np.array([8, 13])
 
-# Convertendo para matriz esparsa
-matriz_esparsa = csr_matrix(matriz_densa)
+# Para calcular a distância matemática espacial utilizamos a função euclidean do SciPy que calcula a reta perfeita entre as duas coordenadas
+distancia = distance.euclidean(inicial, final)
 
-print("--- Representação Esparsa ---")
-print(matriz_esparsa)
-
-# Saída esperada:
-#   (1, 1)	7
-#   (3, 3)	9
+print(f"Coordenada do Marco Inicial: {inicial}")
+print(f"Coordenada do Marco Final: {final}")
+print(f"A distância matemática direta entre os pontos é de {distancia:.2f} unidades.")
+# Saída: A distância matemática direta entre os pontos é de 10.00 unidades.
